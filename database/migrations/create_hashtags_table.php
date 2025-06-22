@@ -14,9 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name')->unique();
             $table->timestamps();
-            
-            // Add index for better performance
-            $table->index('name');
+
         });
 
         Schema::create('hashtaggables', function (Blueprint $table) {
@@ -25,17 +23,13 @@ return new class extends Migration {
             $table->morphs('taggable');
             $table->timestamps();
 
-            // Foreign key constraint
             $table->foreign('hashtag_id')
-                  ->references('id')
-                  ->on('hashtags')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('hashtags')
+                ->onDelete('cascade');
 
-            // Composite indexes for better performance
             $table->index(['hashtag_id', 'taggable_type', 'taggable_id']);
-            $table->index(['taggable_type', 'taggable_id']);
-            
-            // Prevent duplicate relationships
+
             $table->unique(['hashtag_id', 'taggable_type', 'taggable_id'], 'hashtaggables_unique');
         });
     }
