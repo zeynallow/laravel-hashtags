@@ -1,0 +1,57 @@
+{
+  "name": "zeynallow/laravel-hashtags",
+  "description": "Laravel package for hashtag and mention analysis, management and rendering",
+  "version": "1.0.0",
+  "type": "library",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "hashtags",
+    "mentions",
+    "social-media",
+    "text-processing",
+    "eloquent",
+    "morphable"
+  ],
+  "authors": [
+    {
+      "name": "Zeynallow",
+      "email": "zeynaloffnet@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "illuminate/support": "^9.0|^10.0|^11.0",
+    "illuminate/database": "^9.0|^10.0|^11.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^8.0|^9.0|^10.0",
+    "phpunit/phpunit": "^10.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Zeynallow\\Hashtags\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Zeynallow\\Hashtags\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Zeynallow\\Hashtags\\LaravelHashtagsServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}
