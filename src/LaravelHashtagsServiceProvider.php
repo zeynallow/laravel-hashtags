@@ -50,7 +50,7 @@ class LaravelHashtagsServiceProvider extends ServiceProvider
 
         // Register services
         $this->app->singleton(HashtagService::class, function ($app) {
-            return new HashtagService();
+            return new HashtagService($app->make(HashtagExtractor::class));
         });
 
         $this->app->singleton(HashtagExtractor::class, function ($app) {
